@@ -10,7 +10,8 @@ const ProductsPage = () => {
     const fetchProducts = async () => {
       try {
         const data = await loadProducts();
-        setProducts(data); // Spara produkten i state
+        console.log('Products loaded:', data);
+        setProducts(data);
       } catch (error) {
         console.error('Error fetching product:', error);
       }

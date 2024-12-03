@@ -6,7 +6,6 @@ import { findProduct } from '../Utilities/findProduct';
 const ProductDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<IProduct | null>(null);
-  //const [image, setImage]=useState<string>('')
 
   useEffect(() => {
     const fetchProduct = async () => {

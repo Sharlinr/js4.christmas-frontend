@@ -3,19 +3,19 @@ import ProductItem from './ProductItem';
 
 type ProductListProps = {
   products: IBaseProduct[];
-  //onAddToCart: (product: IProduct) => void;
 };
 
-const ProductList = ({ products /*,onAddToCart*/ }: ProductListProps) => {
+const ProductList = ({ products }: ProductListProps) => {
+  console.log('Products in ProductList:', products);
   return (
     <ul>
-      {products.map((product) => (
-        <ProductItem
-          key={product.id}
-          product={product}
-          //onAddToCart={onAddToCart}
-        />
-      ))}
+      {products.length > 0 ? (
+        products.map((product) => (
+          <ProductItem key={product.id} product={product} />
+        ))
+      ) : (
+        <p>No available products</p>
+      )}
     </ul>
   );
 };
