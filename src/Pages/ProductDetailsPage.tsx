@@ -31,7 +31,7 @@ const ProductDetailsPage = () => {
     <>
       {product.image && (
         <img
-          src={`${import.meta.env.VITE_BASE_URL}${product.image}`}
+          src={`${import.meta.env.VITE_BASE_URL}/${product.image}`}
           alt={product.name}
           style={{ maxWidth: '300px' }}
         />

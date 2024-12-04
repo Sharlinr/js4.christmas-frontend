@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ICartItem } from '../Models/IBaseProduct';
+
 import axios from 'axios';
 
 const CartPage = () => {
@@ -8,8 +9,8 @@ const CartPage = () => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/cart');
-        setCartItems(response.data);
+        const response = await axios.get('http://localhost:3000/api/cart');
+        setCartItems(response.data.data);
       } catch (error) {
         console.error('Error fetching cart items:', error);
       }
@@ -20,7 +21,7 @@ const CartPage = () => {
 
   const removeFromCart = async (id: number) => {
     try {
-      await axios.delete(`http://localhost:3001/cart/${id}`); // Ta bort från varukorgen
+      await axios.delete(`http://localhost:3000/api/cart/${id}`); // Ta bort från varukorgen
       setCartItems(cartItems.filter((item) => item.id !== id)); // Uppdatera state lokalt
     } catch (error) {
       console.error('Error removing item from cart:', error);

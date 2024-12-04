@@ -6,7 +6,7 @@ export const addToCart = async (item: ICartItem) => {
   try {
     const response = await axios.post(url, item);
     console.log('Product added to cart:', response.data);
-    return response.data.data;
+    return response.data;
   } catch (error) {
     console.error('Error adding to cart from addToCart:', error);
   }

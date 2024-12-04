@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { IProduct } from '../Models/IProduct';
 
 export const findProduct = async (id: number) /*: Promise<IProduct>*/ => {
   const baseUrl = import.meta.env.VITE_BASE_URL;
