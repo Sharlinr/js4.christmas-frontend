@@ -2,19 +2,24 @@ import { IBaseProduct } from '../Models/IBaseProduct';
 import { Link } from 'react-router-dom';
 import { addToCart } from '../Utilities/addToCart';
 import { useState } from 'react';
+import PrimaryButton from './UI/PrimaryButton';
 
 type ProductItemProps = {
   product: IBaseProduct;
+  onAddToCart: (product: IBaseProduct) => void;
+  cartItems: IBaseProduct[];
 };
 
-const ProductItem = ({ product }: ProductItemProps) => {
+const ProductItem = ({ product, onAddToCart }: ProductItemProps) => {
   const [isAdded, setIsAdded] = useState(false);
+  const [quantity, setQuantity] = useState(1);
 
   const handleAddToCart = async () => {
-    const itemToAdd = { ...product, quantity: 1 };
+    const itemToAdd = { ...product, quantity };
     try {
       await addToCart(itemToAdd);
-      setIsAdded(true);
+      onAddToCart(itemToAdd);
+      setQuantity(quantity + 1);
     } catch (error) {
       console.error('Error adding to cart from ProductItem', error);
       setIsAdded(false);
@@ -28,9 +33,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
       </Link>
       <p>{product.price} kr</p>
 
-      <button onClick={handleAddToCart} disabled={isAdded}>
-        {isAdded ? 'Added to Cart' : 'Add to Cart'}
-      </button>
+      <PrimaryButton onClick={handleAddToCart}>Add to cart</PrimaryButton>
     </li>
   );
 };

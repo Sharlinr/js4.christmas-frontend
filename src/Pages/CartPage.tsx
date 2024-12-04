@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { ICartItem } from '../Models/IBaseProduct';
-
 import axios from 'axios';
 
 const CartPage = () => {
@@ -18,6 +17,20 @@ const CartPage = () => {
 
     fetchCart();
   }, []);
+
+  /*const updateQuantity = async (id: number, newQuantity: number) => {
+    try {
+      const updatedItem = { id, quantity: newQuantity };
+      await axios.put(`http://localhost:3000/api/cart`, updatedItem); // Uppdaterar varukorgens produkt
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === id ? { ...item, quantity: newQuantity } : item
+        )
+      );
+    } catch (error) {
+      console.error('Error updating cart item:', error);
+    }
+  }; /*/
 
   const removeFromCart = async (id: number) => {
     try {

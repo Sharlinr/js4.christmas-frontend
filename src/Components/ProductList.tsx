@@ -3,15 +3,20 @@ import ProductItem from './ProductItem';
 
 type ProductListProps = {
   products: IBaseProduct[];
+  onAddToCart: (product: IBaseProduct) => void;
 };
 
-const ProductList = ({ products }: ProductListProps) => {
+const ProductList = ({ products, onAddToCart }: ProductListProps) => {
   console.log('Products in ProductList:', products);
   return (
     <ul>
       {products.length > 0 ? (
         products.map((product) => (
-          <ProductItem key={product.id} product={product} />
+          <ProductItem
+            key={product.id}
+            product={product}
+            onAddToCart={onAddToCart}
+          />
         ))
       ) : (
         <p>No available products</p>

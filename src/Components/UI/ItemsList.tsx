@@ -5,7 +5,7 @@ type ItemsListProps = {
 };
 
 const ItemsList = ({ children }: ItemsListProps) => {
-  return <ul>{children}</ul>;
+  return <ul className='items-list'>{children}</ul>;
 };
 
 export default ItemsList;
