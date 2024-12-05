@@ -16,6 +16,7 @@ const ProductList = ({ products, onAddToCart }: ProductListProps) => {
             key={product.id}
             product={product}
             onAddToCart={onAddToCart}
+            cartItems={[product]}
           />
         ))
       ) : (

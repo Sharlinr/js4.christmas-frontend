@@ -22,13 +22,19 @@ const ProductsPage = () => {
     fetchProducts();
   }, []);
 
-  const handleAddToCart = (product: IBaseProduct) => {
+  const handleAddToCart = async (product: IBaseProduct) => {
     const existingItem = cartItems.find((item) => item.id === product.id);
     if (existingItem) {
-      existingItem.quantity += 1; // Öka quantity om produkten redan finns
+      existingItem.quantity += 1;
       setCartItems([...cartItems]);
     } else {
       setCartItems([...cartItems, { ...product, quantity: 1 }]); // Lägg till ny produkt
+    }
+
+    try {
+      await addToCart({ ...product, quantity: 1 });
+    } catch (error) {
+      console.error('Error adding to cart ProductsPage', error);
     }
   };
   /*const handleAddToCart = async (product: IBaseProduct) => {
