@@ -62,7 +62,11 @@ const ProductsPage = () => {
     <div>
       <h1>Products</h1>
 
-      <ProductList products={products} onAddToCart={handleAddToCart} />
+      <ProductList
+        products={products}
+        onAddToCart={handleAddToCart}
+        cartItems={cartItems}
+      />
     </div>
   );
 };

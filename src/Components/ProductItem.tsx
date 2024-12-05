@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { addToCart } from '../Utilities/addToCart';
 import { useState, useEffect } from 'react';
 import PrimaryButton from './UI/PrimaryButton';
+import Card from './UI/Card';
 
 type ProductItemProps = {
   product: IBaseProduct;
@@ -46,6 +47,8 @@ const ProductItem = ({ product, onAddToCart, cartItems }: ProductItemProps) => {
 
   return (
     <li className='product-item'>
+      <Card product={product} onAddToCart={handleAddToCart} />
+      {/*}
       <Link to={`/products/${product.id}`}>
         <img
           src={`http://localhost:3000${product.image}`} // Ensure your server serves images correctly
@@ -58,9 +61,9 @@ const ProductItem = ({ product, onAddToCart, cartItems }: ProductItemProps) => {
 
       <PrimaryButton onClick={handleAddToCart}>
         {/*} Add to cart
-        {isAdded ? `Add more` : 'Add to cart'}*/}
+        {isAdded ? `Add more` : 'Add to cart'}
         {existingProduct ? `Add more` : 'Add to cart'}
-      </PrimaryButton>
+      </PrimaryButton>*/}
     </li>
   );
 };

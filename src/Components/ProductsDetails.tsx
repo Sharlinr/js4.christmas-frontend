@@ -13,7 +13,7 @@ const ProductsDetails = ({ product }: ProductDetailsProps) => {
       <p>Saldo: {product.stock}</p>
       {product.image && (
         <img
-          src={`${import.meta.env.VITE_BASE_URL}${product.image}`}
+          src={`${import.meta.env.VITE_BASE_IMG_URL}${product.image}`}
           alt={product.name}
         />
       )}

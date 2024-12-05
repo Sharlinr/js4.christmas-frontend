@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { IProduct } from '../Models/IProduct';
 import { findProduct } from '../Utilities/findProduct';
-import ProductsDetails from '../Components/ProductsDetails';
+//import ProductsDetails from '../Components/ProductsDetails';
+import Card from '../Components/UI/Card';
 
 const ProductDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -29,7 +30,7 @@ const ProductDetailsPage = () => {
 
   return (
     <>
-      <ProductsDetails product={product} />
+      <Card product={product} isDetailed={true} />
     </>
   );
 };
