@@ -1,22 +1,35 @@
 import { Link } from 'react-router-dom';
-import { IBaseProduct } from '../../Models/IBaseProduct';
+
 import ItemImage from './ItemImage';
-import ItemInfoBase from './ItemInfoBase';
-import ItemInfoDetails from './ItemInfoDetails';
+import ItemInfoBase from '../ItemInfoBase';
+//import ItemInfoDetails from '../ItemInfoDetails';
 import PrimaryButton from './PrimaryButton';
+import React from 'react';
 
 type CardProps = {
-  product: IBaseProduct;
+  id: number | string;
+  name: string;
+  price: number;
+  image: string;
   onAddToCart?: () => void;
   isDetailed?: boolean;
+  children?: React.ReactNode;
 };
 
-const Card = ({ product, onAddToCart, isDetailed }: CardProps) => {
+const Card = ({
+  id,
+  name,
+  price,
+  image,
+  onAddToCart,
+  //isDetailed,
+  children,
+}: CardProps) => {
   return (
     <div className='card'>
-      <Link to={`/products/${product.id}`}>
-        <ItemImage image={product.image} alt={product.name} />
-        <ItemInfoBase name={product.name} price={product.price} />
+      <Link to={`/products/${id}`}>
+        <ItemImage image={image} alt={name} />
+        <ItemInfoBase name={name} price={price} />
 
         {/*<img
           src={`${import.meta.env.VITE_BASE_IMG_URL}${product.image}`}
@@ -24,16 +37,15 @@ const Card = ({ product, onAddToCart, isDetailed }: CardProps) => {
           className='product-image'
         />
         <h3>{product.name}</h3>
-        <p>{product.price} kr</p>*/}
+        <p>{product.price} kr</p>
+        {onAddToCart && !isDetailed && (
+        <PrimaryButton onClick={onAddToCart}>Add to cart</PrimaryButton>
+      )}*/}
       </Link>
-
-      {isDetailed && <ItemInfoDetails product={product} />}
-
-      {onAddToCart && !isDetailed && (
-        <PrimaryButton onClick={() => onAddToCart(product)}>
-          Add to cart
-        </PrimaryButton>
+      {onAddToCart && (
+        <PrimaryButton onClick={onAddToCart}>Add to CART</PrimaryButton>
       )}
+      {children && <div className='card-details'>{children}</div>}
     </div>
   );
 };

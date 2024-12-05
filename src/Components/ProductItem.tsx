@@ -21,7 +21,13 @@ const ProductItem = ({ product, onAddToCart }: ProductItemProps) => {
 
   return (
     <li className='product-item'>
-      <Card product={product} onAddToCart={handleAddToCart} />
+      <Card
+        id={product.id}
+        name={product.name}
+        price={product.price}
+        image={product.image}
+        onAddToCart={handleAddToCart}
+      />
     </li>
   );
 };

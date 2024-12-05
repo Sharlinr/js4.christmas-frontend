@@ -10,8 +10,8 @@ type ProductListProps = {
 const ProductList = ({
   products,
   onAddToCart,
-  cartItems,
-}: ProductListProps) => {
+}: //cartItems,
+ProductListProps) => {
   //console.log('Products in ProductList:', products);
   return (
     <ul className='product-list'>

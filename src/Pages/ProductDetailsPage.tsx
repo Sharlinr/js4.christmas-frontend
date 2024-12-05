@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { IProduct } from '../Models/IProduct';
 import { findProduct } from '../Utilities/findProduct';
 import Card from '../Components/UI/Card';
-import ItemInfoDetails from '../Components/UI/ItemInfoDetails';
+import ItemInfoDetails from '../Components/ItemInfoDetails';
 
 const ProductDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -29,9 +29,19 @@ const ProductDetailsPage = () => {
   }
 
   return (
-    <>
-      <Card product={product} isDetailed={true} />
-    </>
+    <div className='details-page'>
+      <Card
+        id={product.id}
+        name={product.name}
+        price={product.price}
+        image={product.image}
+      >
+        <ItemInfoDetails
+          description={product.description}
+          stock={product.stock}
+        />
+      </Card>
+    </div>
   );
 };
 
