@@ -65,7 +65,7 @@ const ProductsPage = () => {
       <ProductList
         products={products}
         onAddToCart={handleAddToCart}
-        cartItems={cartItems}
+        cartItems={[]} //cartItems={cartItems}
       />
     </div>
   );

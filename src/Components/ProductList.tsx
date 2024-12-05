@@ -21,7 +21,7 @@ const ProductList = ({
             key={product.id}
             product={product}
             onAddToCart={onAddToCart}
-            cartItems={cartItems}
+            // cartItems={cartItems}
           />
         ))
       ) : (

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { ICartItem } from '../Models/IBaseProduct';
-//import axios from 'axios';
 import { fetchCartItems, removeCartItem } from '../Utilities/cartUtils';
 import CartList from '../Components/CartList';
 

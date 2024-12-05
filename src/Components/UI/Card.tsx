@@ -1,36 +1,36 @@
 import { Link } from 'react-router-dom';
 import { IBaseProduct } from '../../Models/IBaseProduct';
-import { IProduct } from '../../Models/IProduct';
+import ItemImage from './ItemImage';
+import ItemInfoBase from './ItemInfoBase';
+import ItemInfoDetails from './ItemInfoDetails';
 import PrimaryButton from './PrimaryButton';
 
 type CardProps = {
-  product: IBaseProduct | IProduct;
+  product: IBaseProduct;
   onAddToCart?: () => void;
   isDetailed?: boolean;
 };
 
 const Card = ({ product, onAddToCart, isDetailed }: CardProps) => {
   return (
-    <div className={`product-card ${isDetailed ? 'detailed' : ''}`}>
+    <div className='card'>
       <Link to={`/products/${product.id}`}>
-        <img
-          src={`${import.meta.env.VITE_BASE_IMG_URL}${product.image}`} // Visa bild
+        <ItemImage image={product.image} alt={product.name} />
+        <ItemInfoBase name={product.name} price={product.price} />
+
+        {/*<img
+          src={`${import.meta.env.VITE_BASE_IMG_URL}${product.image}`}
           alt={product.name}
           className='product-image'
         />
         <h3>{product.name}</h3>
-        <p>{product.price} kr</p>
+        <p>{product.price} kr</p>*/}
       </Link>
 
-      {isDetailed && (
-        <>
-          <p>{product.description}</p>
-          <p>Stock: {product.stock}</p>
-        </>
-      )}
+      {isDetailed && <ItemInfoDetails product={product} />}
 
-      {!isDetailed && onAddToCart && (
-        <PrimaryButton onClick={() => onAddToCart(product as IBaseProduct)}>
+      {onAddToCart && !isDetailed && (
+        <PrimaryButton onClick={() => onAddToCart(product)}>
           Add to cart
         </PrimaryButton>
       )}
