@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { ICartItem } from '../Models/IBaseProduct';
-import axios from 'axios';
+//import axios from 'axios';
+import { fetchCartItems, removeCartItem } from '../Utilities/cartUtils';
+import CartList from '../Components/CartList';
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState<ICartItem[]>([]);
@@ -8,41 +10,43 @@ const CartPage = () => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
+        const data = await fetchCartItems(); // Använd utility-funktionen för att hämta varukorgen
+        setCartItems(data);
+      } catch (error) {
+        console.error('Error fetching cart items:', error);
+      }
+      /*try {
         const response = await axios.get('http://localhost:3000/api/cart');
         setCartItems(response.data.data);
       } catch (error) {
         console.error('Error fetching cart items:', error);
-      }
+      }*/
     };
 
     fetchCart();
   }, []);
 
-  /*const updateQuantity = async (id: number, newQuantity: number) => {
+  const handleRemoveFromCart = async (id: number) => {
     try {
-      const updatedItem = { id, quantity: newQuantity };
-      await axios.put(`http://localhost:3000/api/cart`, updatedItem); // Uppdaterar varukorgens produkt
-      setCartItems(
-        cartItems.map((item) =>
-          item.id === id ? { ...item, quantity: newQuantity } : item
-        )
-      );
-    } catch (error) {
-      console.error('Error updating cart item:', error);
-    }
-  }; /*/
-
-  const removeFromCart = async (id: number) => {
-    try {
-      await axios.delete(`http://localhost:3000/api/cart/${id}`); // Ta bort från varukorgen
+      await removeCartItem(id); // Använd utility-funktionen för att ta bort en produkt
       setCartItems(cartItems.filter((item) => item.id !== id)); // Uppdatera state lokalt
     } catch (error) {
       console.error('Error removing item from cart:', error);
     }
+    /*try {
+      await axios.delete(`http://localhost:3000/api/cart/${id}`); // Ta bort från varukorgen
+      setCartItems(cartItems.filter((item) => item.id !== id)); // Uppdatera state lokalt
+    } catch (error) {
+      console.error('Error removing item from cart:', error);
+    }*/
   };
 
   return (
     <div>
+      <h1>Your Cart</h1>
+      <CartList cartItems={cartItems} onRemove={handleRemoveFromCart} />
+    </div>
+    /*<div>
       <h1>Cart</h1>
       {cartItems.length > 0 ? (
         <ul>
@@ -58,7 +62,7 @@ const CartPage = () => {
       ) : (
         <p>Your cart is empty.</p>
       )}
-    </div>
+    </div>*/
   );
 };
 
