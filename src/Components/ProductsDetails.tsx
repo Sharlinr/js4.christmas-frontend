@@ -1,25 +1,22 @@
+import { IProduct } from '../Models/IProduct';
+
 type ProductDetailsProps = {
-  name: string;
-  price: number;
-  description: string;
-  stock: number;
-  image?: string;
+  product: IProduct;
 };
 
-const ProductsDetails = ({
-  name,
-  price,
-  description,
-  stock,
-  image,
-}: ProductDetailsProps) => {
+const ProductsDetails = ({ product }: ProductDetailsProps) => {
   return (
-    <div>
-      <h1>{name}</h1>
-      <p>Price: {price}</p>
-      <p>{description}</p>
-      <p>Stock: {stock}</p>
-      {image && <img src={image} alt={name} style={{ maxWidth: '400px' }} />}
+    <div className='product-details'>
+      <h1>{product.name}</h1>
+      <p>Price: {product.price} kr</p>
+      <p>{product.description}</p>
+      <p>Saldo: {product.stock}</p>
+      {product.image && (
+        <img
+          src={`${import.meta.env.VITE_BASE_URL}${product.image}`}
+          alt={product.name}
+        />
+      )}
     </div>
   );
 };

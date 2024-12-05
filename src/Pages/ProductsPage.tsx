@@ -22,16 +22,6 @@ const ProductsPage = () => {
     fetchProducts();
   }, []);
 
-  /*const handleAddToCart = async (product: IBaseProduct) => {
-    const itemToAdd = { ...product, quantity: 1 }; // Lägg till quantity till objektet
-    try {
-      await addToCart(itemToAdd); // Lägg till eller uppdatera varukorgen
-    } catch (error) {
-      console.error('Error adding to cart:', error);
-    }
-    console.log('Adding to cart:', product);
-  };*/
-
   const handleAddToCart = (product: IBaseProduct) => {
     const existingItem = cartItems.find((item) => item.id === product.id);
     if (existingItem) {
@@ -41,21 +31,32 @@ const ProductsPage = () => {
       setCartItems([...cartItems, { ...product, quantity: 1 }]); // Lägg till ny produkt
     }
   };
+  /*const handleAddToCart = async (product: IBaseProduct) => {
+    const itemToAdd = { ...product, quantity }; // Lägg till quantity till objektet
+    try {
+      await addToCart(itemToAdd); // Lägg till eller uppdatera varukorgen
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+    }
+    console.log('Adding to cart:', product);
+  };*/
+
+  /*const handleAddToCart = async(product: IBaseProduct) => {
+    
+    const existingItem = cartItems.find((item) => item.id === product.id);
+    if (existingItem) {
+      existingItem.quantity += 1; // Öka quantity om produkten redan finns
+      setCartItems([...cartItems]);
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]); // Lägg till ny produkt
+    }
+  };*/
 
   return (
     <div>
       <h1>Products</h1>
 
       <ProductList products={products} onAddToCart={handleAddToCart} />
-
-      <h2>Your Cart:</h2>
-      <ul>
-        {cartItems.map((item) => (
-          <li key={item.id}>
-            {item.name} - {item.quantity} in cart
-          </li>
-        ))}
-      </ul>
     </div>
   );
 };

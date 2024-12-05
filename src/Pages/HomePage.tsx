@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom';
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   return (
-    <div>
-      <h1>Welcome to the Store</h1>
+    <div className='homepage-wrapper'>
+      <nav className='nav-links'>
+        <Link to='/'>Home</Link> | <Link to='/cart'>Cart</Link> |
+        <Link to='/products'>Products</Link>
+      </nav>
+      <h1>Welcome to JulICA</h1>
+      <h3>Everyones christmas store</h3>
       <div>
-        <Link to='/products'>
-          <button>View Products</button>
-        </Link>
-        <Link to='/cart'>
-          <button>View Cart</button>
-        </Link>
+        <button>View Products</button>
+        <button>View Cart</button>
       </div>
     </div>
   );

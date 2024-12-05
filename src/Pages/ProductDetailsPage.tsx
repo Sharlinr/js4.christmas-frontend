@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { IProduct } from '../Models/IProduct';
 import { findProduct } from '../Utilities/findProduct';
+import ProductsDetails from '../Components/ProductsDetails';
 
 const ProductDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -12,7 +13,6 @@ const ProductDetailsPage = () => {
       try {
         if (id) {
           const productData = await findProduct(Number(id));
-
           setProduct(productData);
         }
       } catch (error) {
@@ -29,18 +29,7 @@ const ProductDetailsPage = () => {
 
   return (
     <>
-      {product.image && (
-        <img
-          src={`${import.meta.env.VITE_BASE_URL}/${product.image}`}
-          alt={product.name}
-          style={{ maxWidth: '300px' }}
-        />
-      )}
-      <h2>{product.name}</h2>
-      <p>Beskrivning: {product.description}</p>
-      <p>Pris: {product.price}</p>
-      <p>Antal i lager: {product.stock}</p>
-      <p>{product.description}</p>
+      <ProductsDetails product={product} />
     </>
   );
 };
