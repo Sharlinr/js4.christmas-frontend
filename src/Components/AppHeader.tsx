@@ -4,8 +4,8 @@ const AppHeader = () => {
   return (
     <header className='app-header'>
       <nav className='nav-links'>
-        <Link to='/'>Home</Link> | <Link to='/cart'>Cart</Link> |{' '}
-        <Link to='/products'>Products</Link>
+        <Link to='/'>JulICA</Link> | <Link to='/products'>Produkter</Link>|
+        <Link to='/cart'>Varukorg</Link>
       </nav>
     </header>
   );

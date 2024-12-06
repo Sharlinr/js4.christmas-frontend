@@ -9,6 +9,7 @@ body {
 
 /*Header*/
 .app-header {
+  position: sticky;
   background-color: #f7f3e9;
   padding: 1rem;
   text-align: center;
@@ -24,6 +25,44 @@ body {
   height: 100vh;
   padding: 1rem;
   background-color: #f7f3e9;
+}
+/* Wrapper för hela sidan */
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background-color: #f7f3e9;
+}
+
+/* Informationsdelen */
+.homepage-info {
+  margin-bottom: 2rem;
+}
+
+.homepage-info h1 {
+  font-size: 2.5rem;
+  color: #b22222; /* Julröd färg */
+  margin-bottom: 1rem;
+}
+
+.homepage-info p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+/* Bildsektionen */
+.homepage-image img {
+  min-width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Main Heading */
