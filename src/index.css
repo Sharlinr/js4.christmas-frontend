@@ -1,10 +1,18 @@
 body {
-  font-family: 'Georgia', serif; /* Cozy and elegant font */
-  background-color: #f7f3e9; /* Light beige for warmth */
+  font-family: 'Georgia', serif;
+  background-color: #f7f3e9;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-align: center; /* Centers all text by default */
+  text-align: center;
+}
+
+/*Header*/
+.app-header {
+  background-color: #f7f3e9;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
 }
 
 /* Homepage Wrapper */
@@ -13,55 +21,37 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Full viewport height for perfect centering */
+  height: 100vh;
   padding: 1rem;
-  background-color: #f7f3e9; /* Matches general body background */
+  background-color: #f7f3e9;
 }
 
 /* Main Heading */
 h1 {
-  font-size: 3rem; /* Large, welcoming font size */
-  color: #b22222; /* Deep red for a Christmas feel */
+  font-size: 3rem;
+  color: #b22222;
   margin-bottom: 1rem;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-}
-
-/* Navigation Links */
-.nav-links {
-  margin-bottom: 2rem;
-}
-
-.nav-links a {
-  color: #b22222; /* Match the red heading */
-  text-decoration: none;
-  font-size: 1rem;
-  margin: 0 0.5rem;
-  font-weight: bold;
-  transition: color 0.2s ease-in-out;
-}
-
-.nav-links a:hover {
-  color: #228b22; /* Green for hover effect */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Button Styling */
 button {
-  background-color: #b22222; /* Red background */
-  color: #fff; /* White text */
+  background-color: #b22222;
+  color: #fff;
   border: none;
   padding: 0.7rem 1.5rem;
   font-size: 1rem;
   font-weight: bold;
-  border-radius: 20px; /* Rounded for a cozy feel */
+  border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
   margin: 0 0.5rem;
 }
 
 button:hover {
-  background-color: #228b22; /* Green hover effect */
-  transform: scale(1.1); /* Slight zoom */
+  background-color: #228b22;
+  transform: scale(1.1);
 }
 
 button:focus {
@@ -71,7 +61,7 @@ button:focus {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   h1 {
-    font-size: 2.5rem; /* Slightly smaller heading for tablets */
+    font-size: 2.5rem;
   }
 
   button {
@@ -221,10 +211,110 @@ button:focus {
 
 .card p {
   font-size: 1em;
-  color: #555;
+  color: #3a2727;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+.card-body {
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.card-body h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #b22222;
+  margin-bottom: 5px;
+}
+
+.card-price {
+  font-size: 1rem;
+  color: #228b22;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.card-description {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 8px 8px;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #faf8f8;
+}
+
+.card-description p {
+  margin: 5px 0;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.card-description p:first-child {
+  font-weight: bold;
+  color: #333;
+}
+
+.card-description p:last-child {
+  font-weight: bold;
+  color: #b22222;
+}
+li {
+  list-style: none;
+}
+/* Navigationslänkar */
+.nav-links {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+.nav-links a {
+  color: #b22222;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #228b22;
+  text-decoration: underline;
+}
+
+/* Detail view */
+.details-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f3e9;
+  margin-top: 0.2em;
+}
+
+.details-card {
+  width: 100px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.details-card h4 {
+  font-size: 1.5rem;
+  color: #b22222;
   margin-bottom: 10px;
 }
 
-li {
-  list-style: none;
+.details-card p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.details-card .card-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #228b22;
 }
