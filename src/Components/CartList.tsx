@@ -1,4 +1,4 @@
-import { ICartItem } from '../Models/IBaseProduct';
+import { ICartItem } from '../Models/ICartItem';
 import CartItem from './CartItem';
 
 type CartListProps = {

@@ -1,7 +1,4 @@
-/*export interface IProduct {
-  id: number;
-  name: string;
-  price: number;
+import { IBaseProduct } from './IBaseProduct';
+export interface ICartItem extends IBaseProduct {
   quantity: number;
 }
-*/

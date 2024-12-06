@@ -1,4 +1,4 @@
-import { ICartItem } from '../Models/IBaseProduct';
+import { ICartItem } from '../Models/ICartItem';
 import axios from 'axios';
 
 export const addToCart = async (item: ICartItem) => {

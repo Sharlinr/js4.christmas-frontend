@@ -1,4 +1,4 @@
-import { ICartItem } from '../Models/IBaseProduct';
+import { ICartItem } from '../Models/ICartItem';
 
 type CartItemProps = {
   item: ICartItem;
@@ -10,8 +10,8 @@ const CartItem = ({ item, onRemove }: CartItemProps) => {
     <li>
       <h3>{item.name}</h3>
       <p>{item.price} kr</p>
-      <p>Quantity: {item.quantity}</p>
-      <button onClick={() => onRemove(item.id)}>Remove</button>
+      <p>Antal: {item.quantity}</p>
+      <button onClick={() => onRemove(item.id)}>X</button>
     </li>
   );
 };

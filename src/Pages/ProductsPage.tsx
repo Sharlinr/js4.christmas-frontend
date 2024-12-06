@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { IBaseProduct, ICartItem } from '../Models/IBaseProduct';
+import { IBaseProduct } from '../Models/IBaseProduct';
+import { ICartItem } from '../Models/ICartItem';
 import ProductList from '../Components/ProductList';
 import { loadProducts } from '../Utilities/loadProducts';
 import { addToCart } from '../Utilities/addToCart';
@@ -28,7 +29,7 @@ const ProductsPage = () => {
       existingItem.quantity += 1;
       setCartItems([...cartItems]);
     } else {
-      setCartItems([...cartItems, { ...product, quantity: 1 }]); // Lägg till ny produkt
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
     }
 
     try {
@@ -60,7 +61,7 @@ const ProductsPage = () => {
 
   return (
     <div>
-      <h1>Products</h1>
+      <h1>Våra produkter</h1>
 
       <ProductList
         products={products}

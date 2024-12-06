@@ -25,7 +25,7 @@ ProductListProps) => {
           />
         ))
       ) : (
-        <p>No available products</p>
+        <p>Inga produkter</p>
       )}
     </ul>
   );

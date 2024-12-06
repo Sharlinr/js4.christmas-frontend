@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ICartItem } from '../Models/IBaseProduct';
+import { ICartItem } from '../Models/ICartItem';
 import { fetchCartItems, removeCartItem } from '../Utilities/cartUtils';
 import CartList from '../Components/CartList';
 
@@ -42,7 +42,7 @@ const CartPage = () => {
 
   return (
     <div>
-      <h1>Your Cart</h1>
+      <h1>Varukorg</h1>
       <CartList cartItems={cartItems} onRemove={handleRemoveFromCart} />
     </div>
     /*<div>

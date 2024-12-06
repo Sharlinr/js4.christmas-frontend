@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
-
 import ItemImage from './ItemImage';
 import ItemInfoBase from '../ItemInfoBase';
-//import ItemInfoDetails from '../ItemInfoDetails';
 import PrimaryButton from './PrimaryButton';
 import React from 'react';
 
@@ -30,17 +28,6 @@ const Card = ({
       <Link to={`/products/${id}`}>
         <ItemImage image={image} alt={name} />
         <ItemInfoBase name={name} price={price} />
-
-        {/*<img
-          src={`${import.meta.env.VITE_BASE_IMG_URL}${product.image}`}
-          alt={product.name}
-          className='product-image'
-        />
-        <h3>{product.name}</h3>
-        <p>{product.price} kr</p>
-        {onAddToCart && !isDetailed && (
-        <PrimaryButton onClick={onAddToCart}>Add to cart</PrimaryButton>
-      )}*/}
       </Link>
       {onAddToCart && (
         <PrimaryButton onClick={onAddToCart}>Add to CART</PrimaryButton>
