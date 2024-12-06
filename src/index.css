@@ -7,13 +7,25 @@ body {
   text-align: center;
 }
 
-/*Header*/
+/* Header */
 .app-header {
   position: sticky;
+  top: 0;
   background-color: #f7f3e9;
   padding: 1rem;
+  border-bottom: 0.0625rem solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Header Text */
+.app-header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #b22222;
   text-align: center;
-  border-bottom: 1px solid #ddd;
 }
 
 /* Homepage Wrapper */
@@ -24,9 +36,8 @@ body {
   justify-content: center;
   height: 100vh;
   padding: 1rem;
-  background-color: #f7f3e9;
 }
-/* Wrapper för hela sidan */
+/* Wrapper  */
 .homepage {
   display: flex;
   flex-direction: column;
@@ -34,18 +45,10 @@ body {
   justify-content: center;
   text-align: center;
   padding: 2rem;
-  background-color: #f7f3e9;
 }
-
-/* Informationsdelen */
-.homepage-info {
-  margin-bottom: 2rem;
-}
-
 .homepage-info h1 {
   font-size: 2.5rem;
-  color: #b22222; /* Julröd färg */
-  margin-bottom: 1rem;
+  color: #b22222;
 }
 
 .homepage-info p {
@@ -55,17 +58,17 @@ body {
   margin-bottom: 0.5rem;
 }
 .homepage-image {
-  width: 100%; /* Fyll hela bredden */
-  height: 100vh; /* Fyll hela höjden på skärmen */
-  overflow: hidden; /* Hindrar att något sticker ut */
+  width: 100%;
+  height: 70%;
+  overflow: hidden;
 }
 
-/* Bildsektionen */
+/* Img Section */
 .homepage-image img {
   width: 100%;
-  height: 100%;
+
   object-fit: cover;
-  margin-top: 10px;
+  margin-bottom: 0;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -100,6 +103,26 @@ button:hover {
 
 button:focus {
   outline: none;
+}
+.add-to-cart {
+  background-color: #b22222;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.add-to-cart:hover {
+  background-color: #228b22;
+}
+
+.add-to-cart:disabled {
+  background-color: #ddd;
+  color: #aaa;
+  cursor: not-allowed;
 }
 
 /* Responsive Adjustments */
@@ -144,7 +167,6 @@ button:focus {
   gap: 1.5rem;
   justify-content: center;
   padding: 2rem;
-  background-color: #f7f3e9;
 }
 
 /* Product Card */
@@ -308,7 +330,7 @@ button:focus {
 li {
   list-style: none;
 }
-/* Navigationslänkar */
+/* Nav links */
 .nav-links {
   margin-bottom: 2rem;
   font-size: 1.2rem;
