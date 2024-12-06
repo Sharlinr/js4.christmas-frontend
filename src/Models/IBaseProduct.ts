@@ -5,7 +5,3 @@ export interface IBaseProduct {
   price: number;
   image: string;
 }
-
-export interface ICartItem extends IBaseProduct {
-  quantity: number;
-}

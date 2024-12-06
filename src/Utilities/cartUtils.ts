@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ICartItem } from '../Models/IBaseProduct';
+import { ICartItem } from '../Models/ICartItem';
 
 const CART_ENDPOINT = `${import.meta.env.VITE_BASE_URL}/cart`;
 
@@ -20,4 +20,11 @@ export const removeCartItem = async (id: number): Promise<void> => {
     console.error('Error removing item from cart:', error);
     throw new Error('Failed to remove item from cart');
   }
+};
+
+export const updateCartItemQuantity = async (
+  id: number,
+  quantity: number
+): Promise<void> => {
+  await axios.patch(`${CART_ENDPOINT}/${id}`, { quantity });
 };

@@ -7,12 +7,7 @@ type ProductListProps = {
   cartItems: IBaseProduct[];
 };
 
-const ProductList = ({
-  products,
-  onAddToCart,
-}: //cartItems,
-ProductListProps) => {
-  //console.log('Products in ProductList:', products);
+const ProductList = ({ products, onAddToCart }: ProductListProps) => {
   return (
     <ul className='product-list'>
       {products.length > 0 ? (
