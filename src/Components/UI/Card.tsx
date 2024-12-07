@@ -21,9 +21,7 @@ const Card = ({ id, name, price, image, onAddToCart, children }: CardProps) => {
         <ItemImage image={image} alt={name} />
         <ItemInfoBase name={name} price={price} />
       </Link>
-      {onAddToCart && (
-        <PrimaryButton onClick={onAddToCart}>Add to CART</PrimaryButton>
-      )}
+      {onAddToCart && <PrimaryButton onClick={onAddToCart}>Köp</PrimaryButton>}
       {children && <div className='card-details'>{children}</div>}
     </div>
   );
